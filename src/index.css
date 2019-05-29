@@ -33,11 +33,15 @@ code {
   box-sizing: border-box;
   padding-right: 5px;
   text-align: right;
-  color: #ddd;
-  background-color: darkgrey;
+  color: white;
+  background-color: black;
 }
 
-#mainDisplay {
+span {
+  float: left;
+}
+
+#display {
   width: 95%;
   margin: 5px;
   border: 1px solid silver;
@@ -48,7 +52,7 @@ code {
   text-align: right;
   padding-right: 5px;
   box-sizing: border-box;
-  background-color: #11ddbb;
+  background-color: #1db;
 }
 
 #container {
@@ -59,7 +63,7 @@ code {
 
 .box {
   font-family: 'Audiowide', cursive;
-  width: 80px;
+  width: 78px;
   height: 40px;
   border: 1px solid silver;
   float: left;
@@ -77,18 +81,6 @@ code {
 }
 
 .box:hover {
-  box-shadow: 1px 1px 1px lightgray, -1px -1px 1px lightgray;
-}
-
-.gray {
-  background: lightgray;
-}
-
-.blue {
-  background: #498af3;
-  color: white;
-}
-
-footer {
-  text-align: center;
+  background-color: lightgreen;
+  box-shadow: 1px 1px 1px lightgray, -1px -1px 1px black;
 }

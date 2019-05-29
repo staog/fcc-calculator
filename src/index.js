@@ -2,142 +2,90 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-const buttons = [
-  {
-    id:'par1',
-    className: 'box gray click',
-    val: '('
-  },
-  {
-    id:'par2',
-    className: 'box gray click',
-    val: ')'
-  },
-  {
-    id:'clear',
-    className: 'box gray ac',
-    val: 'AC'
-  },
-  {
-    id:'delete',
-    className: 'box gray ce',
-    val: 'CE'
-  },
-  {
-    id:'seven',
-    className: 'box click',
-    val: '7'
-  },
-  {
-    id:'eight',
-    className: 'box click',
-    val: '8'
-  },
-  {
-    id:'nine',
-    className: 'box click',
-    val: '9'
-  },
-  {
-    id:'divide',
-    className: 'box gray click',
-    val: '/'
-  },
-  {
-    id:'four',
-    className: 'box click',
-    val: '4'
-  },
-  {
-    id:'five',
-    className: 'box click',
-    val: '5'
-  },
-  {
-    id:'six',
-    className: 'box click',
-    val: '6'
-  },
-  {
-    id:'multiply',
-    className: 'box gray click',
-    val: '*'
-  },
-  {
-    id:'one',
-    className: 'box click',
-    val: '1'
-  },
-  {
-    id:'two',
-    className: 'box click',
-    val: '2'
-  },
-  {
-    id:'three',
-    className: 'box click',
-    val: '3'
-  },
-  {
-    id:'subtract',
-    className: 'box gray click',
-    val: '-'
-  },
-  {
-    id:'zero',
-    className: 'box click',
-    val: '0'
-  },
-  {
-    id:'decimal',
-    className: 'box click',
-    val: '.'
-  },
-  {
-   id:'equals',
-   className: 'box blue',
-   val: '='
-  },
-  {
-   id:'add',
-   className: 'box gray click',
-   val: '+'
-  }
-]
-
-class App extends React.Component {
+class Calculator extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      display: "0",
+      currentNumber: "0"
     }
-    // this.inputMade = this.inputMade.bind(this)
-    // this.showResult = this.showResult.bind(this)
-    // this.clearAll = this.clearAll.bind(this)
-    // this.removeLast = this.removeLast.bind(this)
   }
 
-  // inputMade = e => {
-  //   for (var i = 0; i < buttons.length; i++) {
-  //     if (e.target.id = buttons[i].id) {
-  //       let button = document.getElementById(buttons[i]
-  //     }
-  //   }
-  // }
+  handleClick = (buttonName) => {
+    let currentNumber = this.state.currentNumber
+    console.log(buttonName);
+    switch (true) {
+      case buttonName === "0" ||
+           buttonName === "1" ||
+           buttonName === "2" ||
+           buttonName === "3" ||
+           buttonName === "4" ||
+           buttonName === "5" ||
+           buttonName === "6" ||
+           buttonName === "7" ||
+           buttonName === "8" ||
+           buttonName === "9" :
+      if (this.state.currentNumber !== "0") {
+        currentNumber += buttonName
+      }
+      else {
+        currentNumber = buttonName
+      }
+      this.setState({currentNumber})
+      break
+    }
+  }
 
   render() {
-    return (
+    return(
       <div id="calculator">
-        <div id="topDisplay"></div>
-        <div id="mainDisplay"></div>
+        <div id="topDisplay"><span>CASIO</span>MJ-120D Plus</div>
+        <Display currentNumber={this.state.currentNumber} />
         <div id="container">
-          {buttons.map((item) => {
-            return <button id={item.id} className={item.className}>{item.val}</button>
-          })}
+          <Button id="par1" name="(" handleClick={this.handleClick} />
+          <Button id="par2" name=")" handleClick={this.handleClick} />
+          <Button id="clear" name="AC" handleClick={this.handleClick} />
+          <Button id="clear" name="C" handleClick={this.handleClick} />
+          <Button id="seven" name="7" handleClick={this.handleClick} />
+          <Button id="eight" name="8" handleClick={this.handleClick} />
+          <Button id="nine" name="9" handleClick={this.handleClick} />
+          <Button id="Buttonide" name="/" handleClick={this.handleClick} />
+          <Button id="four" name="4" handleClick={this.handleClick} />
+          <Button id="five" name="5" handleClick={this.handleClick} />
+          <Button id="six" name="6" handleClick={this.handleClick} />
+          <Button id="multiply" name="*" handleClick={this.handleClick} />
+          <Button id="one" name="1" handleClick={this.handleClick} />
+          <Button id="two" name="2" handleClick={this.handleClick} />
+          <Button id="three" name="3" handleClick={this.handleClick} />
+          <Button id="subtract" name="-" handleClick={this.handleClick} />
+          <Button id="zero" name="0" handleClick={this.handleClick} />
+          <Button id="decimal" name="." handleClick={this.handleClick} />
+          <Button id="equals" name="=" handleClick={this.handleClick} />
+          <Button id="add" name="+" handleClick={this.handleClick} />
         </div>
       </div>
     )
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+class Display extends React.Component {
+  render() {
+    return(
+      <div id="display">
+        {this.props.currentNumber}
+      </div>
+    )
+  }
+}
+
+class Button extends React.Component {
+  runHandleClick = () => {
+    this.props.handleClick(this.props.name)
+  }
+  render() {
+    return(
+      <div id={this.props.id} className="box click" onClick={this.props.runHandleClick}>{this.props.name}</div>
+    )
+  }
+}
+
+ReactDOM.render(<Calculator />, document.getElementById('root'));

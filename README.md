@@ -44,4 +44,4 @@ EXAMPLE: 3 + 5 x 6 - 2 / 4 =
     Immediate Execution Logic: 11.5
     Formula/Expression Logic: 32.5
 
-You can build your project by forking this CodePen pen. Or you can use this CDN link to run the tests in any environment you like: https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js
+You can use this CDN link to run the tests in any environment you like: https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js

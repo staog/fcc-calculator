@@ -45,3 +45,10 @@ EXAMPLE: 3 + 5 x 6 - 2 / 4 =
     Formula/Expression Logic: 32.5
 
 You can use this CDN link to run the tests in any environment you like: https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js
+
+
+=======================================================================
+
+[DEMO](https://codepen.io/staog/full/PvejXw)
+
+=======================================================================
